@@ -74,12 +74,12 @@ async function main() {
     const firebaseConfig = {
         //poner aqui mis credenciales del proyecto de firebae
         apiKey: "",
-        authDomain: "",
-        projectId: "",
-        storageBucket: "",
-        messagingSenderId: "",
-        appId: "",
-        measurementId: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: ""
     };
 
     // Initialize Firebase
