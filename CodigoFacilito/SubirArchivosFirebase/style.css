@@ -1,0 +1,13 @@
+.image{
+    max-height: 80%;
+    max-width: 100%;
+    border: solid 2px black;
+    /*box-shadow: rgba(red, green, blue, 10px) */
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background-image: url(https://image.freepik.com/vector-gratis/fondo-blanco-hexagono-tecnologia-azul_1017-19366.jpg);
+    background-size: cover;
+}
