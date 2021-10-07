@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6' crossorigin='anonymous'>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js' integrity='sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4' crossorigin='anonymous'></script>
+    <title>WebSockets</title>
+</head>
+<body>
+    <div class="container mt-3">
+        <h1 class="text-center text-success">WebSockets Introduction</h1>
+    </div>
+    <div class="row mt-5">
+        <div class="col-lg-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-header-tittle">
+                        <h2>Mensajes</h2>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <ul id="mensajeria"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-lg-6 offset-3">
+            <form id="form" class="form-control">
+                <input type="text" name="message" id="message" class="form-control">
+                <input type="submit" value="Enviar" class="btn btn-large btn-dark mt-3 btn-block">
+            </form>
+        </div>
+    </div>
+    <!-- se puede iniciar una conexion websocket solo con JS ya que el cliente ya tiene esas libreria -->
+    <script>
+        let client = new WebSocket('ws://localhost:3000', 'echo-protocol');
+
+        document.querySelector("#form").addEventListener('submit', ev => {
+            ev.preventDefault();//prevenir que se envie el formulario cuando se haga la petición GET
+            //quiero usar el cliente para enviar información
+            let message = document.querySelector('#message').value;
+            client.send(message);
+        });
+
+        client.onmessage = function(e){
+            console.log(e.data);
+            let a = document.createTextNode.value = e.data;
+            let newElement = `<li>${e.data}</li>`;
+            document.querySelector("ul").innerHTML = newElement + document.querySelector("ul").innerHTML ; 
+
+            console.log(document.querySelector("ul").innerHTML);
+        }
+    </script>
+</body>
+</html>
